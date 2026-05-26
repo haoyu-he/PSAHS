@@ -40,6 +40,9 @@ def build_parser(description: str) -> argparse.ArgumentParser:
     parser.add_argument("--class_layers", type=int, default=2)
     parser.add_argument("--dropout", type=float, default=0.1)
     parser.add_argument("--bn", action="store_true", default=False)
+    parser.add_argument("--backbone", type=str, default="GCN")
+    parser.add_argument("--resnet", action="store_true", default=False)
+    parser.add_argument("--rw_lmda", type=float, default=0.5)
 
     # MLP auxiliary classifier (Step 1)
     parser.add_argument("--mlp_conv_dim", type=int, default=128)

@@ -105,7 +105,7 @@ For **embedding visualizations** (PCA / t-SNE), use helpers in `psahs/training_u
 | `--method` | `DANN_rw` | Must contain `rw` to enable structure adjustment |
 | `--seeds` | 1–5 | Random seeds (paper: 5 runs) |
 
-Tuned defaults for Blog/Twitch-style benchmarks are applied automatically in `main/args.py`.
+Tuned defaults for Blog/Twitch-style benchmarks are applied in `main/args.py` (`apply_mlp_defaults()` / `apply_psahs_defaults()`). Edit those functions to change training hyperparameters.
 
 ## Supported datasets
 
@@ -138,3 +138,4 @@ MIT — see [LICENSE](LICENSE).
 
 - Raw data, checkpoints, and result logs are excluded via `.gitignore` (see [DATA.md](DATA.md) for what to download).
 - Training-curve plots: `scripts/plot_training_metrics.py` (requires Step 1 MLP checkpoints).
+- Hyperparameters (epochs, lr, architecture, etc.) are set in `main/args.py` via `apply_mlp_defaults()` and `apply_psahs_defaults()`, not overridden from the CLI.
